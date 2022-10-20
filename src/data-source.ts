@@ -11,4 +11,8 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   name: process.env.DB_NAME,
+  database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
