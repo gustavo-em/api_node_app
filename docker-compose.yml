@@ -1,0 +1,46 @@
+version: '3.5'
+
+services:
+  web:
+    build: .
+    container_name: web
+    command: sh -c "npm start"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+    networks:
+      - postgres
+  db:
+    container_name: database
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_NAME: ${DB_NAME}
+      
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  
+ 
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
