@@ -17,16 +17,16 @@ services:
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
     networks:
       - postgres
   db:
-    container_name: database
+    container_name: ${DB_HOST}
     image: postgres
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_NAME: ${DB_NAME}
-      
       PGDATA: /data/postgres
     volumes:
        - postgres:/data/postgres
