@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { TypeEntry } from "./TypeEntry";
 
 @Entity("entries")
 export class Entrie {
@@ -7,4 +8,10 @@ export class Entrie {
 
   @Column({ type: "text" })
   name: string;
+
+  @Column({ type: "int" })
+  type_id: number;
+
+  @Column({ type: "int" })
+  user_id: number;
 }
