@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { userRepository } from "../repositories/userRepository";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 import jwt from "jsonwebtoken";
 export class UserController {

@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec ts-node ./src/index.ts",
-    "start": "nodemon --exec ts-node ./src/index.ts",
+    "dev": "nodemon --exec ts-node --esm ./src/index.ts",
+    "start": "nodemon --exec ts-node --esm ./src/index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/",
     "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run"
   },
@@ -18,13 +18,17 @@
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^9.0.1",
-    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "chatgpt": "^4.4.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "openai": "^3.1.0",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.10"
+    "typeorm": "^0.3.10",
+    "yarn": "^1.22.19"
   }
 }
